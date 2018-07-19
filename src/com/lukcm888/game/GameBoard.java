@@ -35,7 +35,7 @@ public class GameBoard extends JPanel {
 	private static final int RGB1 = 223;
 	private static final int RGB2 = 191;
 	private static final int RGB3 = 159;
-	private static final int WIDTH = 600;
+	private static final int WIDTH = 800;
 	private static final int HEIGHT = WIDTH;
 	private Path2D path = new Path2D.Double();
 	private static Color boardColor = new Color(RGB1, RGB2, RGB3);
@@ -60,6 +60,9 @@ public class GameBoard extends JPanel {
 	protected void paintComponent(Graphics g) {
 		
 		logger.info(staticClassName +".paintComponent(): Entering method"); 
+		
+		
+		
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 		
@@ -67,6 +70,131 @@ public class GameBoard extends JPanel {
 				RenderingHints.VALUE_ANTIALIAS_ON);
 		g2.setPaint(boardColor);
 		g2.fill(path);
+		
+		int xPos = 390;
+		int yPos = 310;
+		
+		//TODO: rewrite into more efficient algorithm
+		for (int i = 0; i < 15; i ++ ) {
+		
+			if (i == 0) {
+				Hole hole = new Hole(i, xPos, yPos);
+				hole.paintComponent(g2);
+				yPos += 50;
+			}
+			//  row 2
+			
+			else if ( i == 1) {
+				xPos -= 20;
+				Hole hole = new Hole(i, xPos, yPos);
+				hole.paintComponent(g2);
+			}
+			else if (i== 2) {
+				xPos += 40;
+				Hole hole = new Hole(i, xPos, yPos);
+				hole.paintComponent(g2);
+				xPos -= 20;
+				yPos += 50;
+				
+			}
+			
+			//  row 3
+			else if (i == 3) {
+				xPos -= 40;
+				Hole hole = new Hole(i, xPos, yPos);
+				hole.paintComponent(g2);
+				xPos += 40;
+			}
+			
+			else if (i == 4) {
+				Hole hole = new Hole(i, xPos, yPos);
+				hole.paintComponent(g2);
+				xPos += 40;
+			}
+			
+			
+			else if (i == 5) {
+				Hole hole = new Hole(i, xPos, yPos);
+				hole.paintComponent(g2);
+				xPos -= 40;
+				yPos += 50;
+			}
+			
+			
+			//  row 4
+			else if (i == 6) {
+				
+				xPos -= 80;
+				Hole hole = new Hole(i, xPos, yPos);
+				hole.paintComponent(g2);
+				xPos += 50;
+			}
+			
+			
+			else if (i == 7) {
+				Hole hole = new Hole(i, xPos, yPos);
+				hole.paintComponent(g2);
+				xPos += 50;
+			}
+			
+			
+			else if (i == 8) {
+				Hole hole = new Hole(i, xPos, yPos);
+				hole.paintComponent(g2);
+				xPos += 50;
+			}
+			
+			else if (i == 9) {
+				Hole hole = new Hole(i, xPos, yPos);
+				hole.paintComponent(g2);
+				xPos -= 120;
+				yPos += 50;
+			}
+			
+			
+			//  row 5
+			
+			else if (i == 10) {
+				
+				xPos -= 55;
+				Hole hole = new Hole(i, xPos, yPos);
+				hole.paintComponent(g2);
+				xPos += 50;
+			}
+			
+			
+			else if (i == 11) {
+				Hole hole = new Hole(i, xPos, yPos);
+				hole.paintComponent(g2);
+				xPos += 50;
+			}
+			
+			
+			else if (i == 12) {
+				Hole hole = new Hole(i, xPos, yPos);
+				hole.paintComponent(g2);
+				xPos += 50;
+			}
+			
+			else if (i == 13) {
+				Hole hole = new Hole(i, xPos, yPos);
+				hole.paintComponent(g2);
+				xPos += 50;
+			}
+			
+			else if (i == 14) {
+				Hole hole = new Hole(i, xPos, yPos);
+				hole.paintComponent(g2);
+				xPos += 50;
+			}
+			
+			else {
+				continue;
+			}
+		
+		}
+		
+	
 		
 		logger.info(staticClassName +".paintComponent(): Exiting method"); 
 			
@@ -83,4 +211,5 @@ public class GameBoard extends JPanel {
 		logger.info(staticClassName +".getPreferredSize(): isPreferredSizeSet() == false.  Exiting method"); 
 			return new Dimension(WIDTH, HEIGHT);
 	}
+	
 }

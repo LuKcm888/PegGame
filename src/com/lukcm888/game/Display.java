@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -48,6 +49,7 @@ public class Display extends JFrame {
 			
 			logger.info(staticClassName +".initDisplay(): About to create GameBoard object"); 
 			GameBoard gameBoard = new GameBoard();
+			
 			
 			logger.info(staticClassName +".initDisplay(): About to create JFrame"); 
 			JFrame frame = new JFrame(title);
