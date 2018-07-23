@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
-public class Hole extends JPanel implements MouseListener {
+public class Hole extends JPanel  {
 	
 	private static String staticClassName = Hole.class.getName();
 	private static Logger logger = Logger.getLogger(staticClassName);
@@ -25,18 +25,37 @@ public class Hole extends JPanel implements MouseListener {
 	private static final int RGB3 = 0;
 	private static Color circleColor = new Color(RGB1, RGB2, RGB3);
 	
-	public Hole (int holeNumber, int xPos, int yPos) {
+	private int [] adjacentHoles;
+	
+	public Hole (int holeNumber, int xPos, int yPos, int [] adjacentHoles) {
 		
 		logger.info(staticClassName +".Constructor: Constructing Hole"); 
 		
 		this.holeNumber = holeNumber;
 		this.xPos = xPos;
 		this.yPos = yPos;
+		this.adjacentHoles = adjacentHoles;
 		
 		logger.info(staticClassName +".Constructor: GameBoard Hole"); 
 			
 	}
 		
+	public int getHoleNumber() {
+		return holeNumber;
+	}
+
+	public void setHoleNumber(int holeNumber) {
+		this.holeNumber = holeNumber;
+	}
+	
+	public int[] getAdjacentHoles() {
+		return adjacentHoles;
+	}
+
+	public void setAdjacentHoles(int[] adjacentHoles) {
+		this.adjacentHoles = adjacentHoles;
+	}
+
 	@Override 
 	protected void paintComponent(Graphics g) {
 		
@@ -60,34 +79,5 @@ public class Hole extends JPanel implements MouseListener {
 		 return new Dimension(600, 150);
 	}
 
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
